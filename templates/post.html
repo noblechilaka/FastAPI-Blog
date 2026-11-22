@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="top"></div>
+<section class="post-section">
+    <div class="container">
+        <a class="post-back-link" href="{{ url_for('home') }}#latest">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Back to all stories
+        </a>
+
+        <article class="post-article">
+            <header class="post-header">
+                <div class="story-meta">
+                    <span class="story-category">Journal</span>
+                    <span class="meta-separator" aria-hidden="true">·</span>
+                    <time>{{ post.date_posted.strftime("%B %d, %Y") }}</time>
+                </div>
+                <h1>{{ post.title }}</h1>
+                <div class="post-author">
+                    <img src="{{ post.author.image_path }}" alt="" class="avatar">
+                    <span>Written by <strong>{{ post.author.username }}</strong></span>
+                </div>
+            </header>
+
+            <div class="post-body">{{ post.content }}</div>
+            <div class="post-endmark" aria-hidden="true"></div>
+        </article>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="top"></div>
+<section class="error-section" aria-labelledby="error-title">
+    <div class="container">
+        <div class="error-card">
+            <div class="error-icon" aria-hidden="true">
+                <i class="bi bi-exclamation-lg"></i>
+            </div>
+            <span class="eyebrow">A small detour</span>
+            <p class="error-code">{{ status_code | default("Oops") }}</p>
+            <h1 id="error-title">{{ error_title | default("Something went wrong") }}</h1>
+            <p class="error-message">{{ detail | default("We couldn't complete that request. Please try again, or head back to the stories.", true) }}</p>
+            <a class="btn btn-dark nav-cta error-home-link" href="{{ url_for('home') }}">
+                Back to stories <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock content %}
